@@ -138,4 +138,4 @@ CORS_ALLOWED_ORIGINS = [
 # }
 
 # CSRF_TRUSTED_ORIGINS=env.list("CSRF_TRUSTED_ORIGINS",default=[])
-CSRF_TRUSTED_ORIGINS = env("CSRF_TRUSTED_ORIGINS", default="").split(",")
+CSRF_TRUSTED_ORIGINS = ["https://to-do-list-api-hu9r.onrender.com"]
