@@ -26,8 +26,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env.bool("DEBUG", default=False)
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
-
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -137,3 +136,5 @@ CORS_ALLOWED_ORIGINS = [
 #         'rest_framework.renderers.JSONRenderer',  # Only allow JSON responses
 #     ),
 # }
+
+CSRF_TRUSTED_ORIGINS=env("CSRF_TRUSTED_ORIGINS")
