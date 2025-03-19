@@ -132,11 +132,11 @@ CORS_ALLOWED_ORIGINS = [
     'https://to-do-list-api-hu9r.onrender.com' 
 ]
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_RENDERER_CLASSES': (
-#         'rest_framework.renderers.JSONRenderer',  # Only allow JSON responses
-#     ),
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',  # Only allow JSON responses
+    ),
+}
 
 # CSRF_TRUSTED_ORIGINS=env.list("CSRF_TRUSTED_ORIGINS",default=[])
 CSRF_TRUSTED_ORIGINS = ['https://to-do-list-api-hu9r.onrender.com']
