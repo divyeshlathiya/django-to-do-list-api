@@ -26,7 +26,8 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env.bool("DEBUG", default=False)
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
+# ALLOWED_HOSTS = env.list("ALLOWED_HOSTS",default=[])
+ALLOWED_HOSTS = env("ALLOWED_HOSTS", default="").split(",")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -42,6 +43,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -50,9 +53,6 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "to_do_list.urls"
@@ -137,4 +137,5 @@ CORS_ALLOWED_ORIGINS = [
 #     ),
 # }
 
-CSRF_TRUSTED_ORIGINS=env.list("CSRF_TRUSTED_ORIGINS",default=[])
+# CSRF_TRUSTED_ORIGINS=env.list("CSRF_TRUSTED_ORIGINS",default=[])
+CSRF_TRUSTED_ORIGINS = env("CSRF_TRUSTED_ORIGINS", default="").split(",")
