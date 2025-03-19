@@ -23,11 +23,11 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env.bool("DEBUG", default=False)
 # ALLOWED_HOSTS = env.list("ALLOWED_HOSTS",default=[])
-ALLOWED_HOSTS = env("ALLOWED_HOSTS", default="").split(",")
+# ALLOWED_HOSTS = env("ALLOWED_HOSTS", default="").split(",")
+ALLOWED_HOSTS = ['to-do-list-api-hu9r.onrender.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -128,7 +128,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React frontend URL
-    "http://192.168.1.4:8000",  # Flutter app URL-1
+    "http://192.168.1.4:8000", # Flutter app URL
+    'https://to-do-list-api-hu9r.onrender.com' 
 ]
 
 # REST_FRAMEWORK = {
@@ -138,4 +139,4 @@ CORS_ALLOWED_ORIGINS = [
 # }
 
 # CSRF_TRUSTED_ORIGINS=env.list("CSRF_TRUSTED_ORIGINS",default=[])
-CSRF_TRUSTED_ORIGINS = ["https://to-do-list-api-hu9r.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ['https://to-do-list-api-hu9r.onrender.com']
